@@ -4,6 +4,9 @@ import Home from "../../pages/Home/Home/Home";
 import Campaigns from "../../pages/Campaigns/Campaigns";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
+import Secret from "../../components/Secret/Secret";
+import Payment from "../../pages/Payment/Payment";
 
 const router = createBrowserRouter([
     {
@@ -17,6 +20,14 @@ const router = createBrowserRouter([
             {
                 path: '/campaigns',
                 element: <Campaigns></Campaigns>
+            },
+            {
+                path: '/secret',
+                element: <PrivateRoutes><Secret></Secret></PrivateRoutes>
+            },
+            {
+                path: '/payment',
+                element: <Payment></Payment>
             },
             {
                 path: '/login',

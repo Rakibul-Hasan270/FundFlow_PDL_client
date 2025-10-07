@@ -20,9 +20,11 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         return signOut(auth);
     }
-    const updateUserProfile = () => {
+    const updateUserProfile = (name, photo) => {
         setLoading(true);
-        return updateProfile()
+        return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: photo
+        })
     }
 
     useEffect(() => {

@@ -1,0 +1,110 @@
+[
+    {
+        "id": 1,
+        "title": "ক্ষুধার্ত মানুষের জন্য ফুড ড্রাইভ",
+        "category": "Food & Nutrition",
+        "description": "দৈনন্দিন খাবার পেতে না পারা অসহায় মানুষের মধ্যে রান্না করা খাবার ও শুকনো খাবার বিতরণ।",
+        "image": "https://i.postimg.cc/VLcsFnhM/food-donation.jpg",
+        "goalAmount": 100000,
+        "raisedAmount": 78000,
+        "donors": 240,
+        "location": "ঢাকা, বাংলাদেশ",
+        "status": "Ongoing"
+    },
+    {
+        "id": 2,
+        "title": "বন্যাদুর্গতদের জরুরি ত্রাণ সহায়তা",
+        "category": "Disaster Relief",
+        "description": "সাম্প্রতিক বন্যায় ক্ষতিগ্রস্ত এলাকায় খাদ্য, ওষুধ ও আশ্রয় সামগ্রী পৌঁছে দেওয়া।",
+        "image": "https://i.postimg.cc/3wxtFzLg/flood-relief.jpg",
+        "goalAmount": 200000,
+        "raisedAmount": 155000,
+        "donors": 420,
+        "location": "সুনামগঞ্জ, বাংলাদেশ",
+        "status": "Ongoing"
+    },
+    {
+        "id": 3,
+        "title": "শিক্ষার আলো ছড়িয়ে দিন",
+        "category": "Education",
+        "description": "গ্রামীণ এলাকার দরিদ্র শিশুদের জন্য স্কুল ব্যাগ, খাতা-কলম ও টিউশন ফি সহায়তা।",
+        "image": "https://i.postimg.cc/x1Ywmw1x/education.jpg",
+        "goalAmount": 120000,
+        "raisedAmount": 95000,
+        "donors": 310,
+        "location": "রাজশাহী, বাংলাদেশ",
+        "status": "Ongoing"
+    },
+    {
+        "id": 4,
+        "title": "শীতবস্ত্র বিতরণ কর্মসূচি",
+        "category": "Clothing & Shelter",
+        "description": "শীতকালে গ্রামীণ অঞ্চলে দরিদ্র মানুষের মধ্যে কম্বল ও গরম পোশাক বিতরণ।",
+        "image": "https://i.postimg.cc/Kc5JG6k1/winter-cloth.jpg",
+        "goalAmount": 80000,
+        "raisedAmount": 56000,
+        "donors": 175,
+        "location": "কুড়িগ্রাম, বাংলাদেশ",
+        "status": "Ongoing"
+    },
+    {
+        "id": 5,
+        "title": "অনাথ শিশুদের জন্য স্থায়ী আশ্রয়",
+        "category": "Children & Shelter",
+        "description": "রাস্তার অনাথ শিশুদের জন্য নিরাপদ আশ্রয় ও পুনর্বাসন কেন্দ্র নির্মাণ।",
+        "image": "https://i.postimg.cc/NFxHb8dj/orphanage.jpg",
+        "goalAmount": 300000,
+        "raisedAmount": 210000,
+        "donors": 520,
+        "location": "চট্টগ্রাম, বাংলাদেশ",
+        "status": "Ongoing"
+    },
+    {
+        "id": 6,
+        "title": "দুরারোগ্য রোগীদের চিকিৎসা সহায়তা",
+        "category": "Health & Medical",
+        "description": "ক্যান্সার, কিডনি ও অন্যান্য জটিল রোগে আক্রান্ত দরিদ্র রোগীদের জন্য চিকিৎসা ব্যয় সংগ্রহ।",
+        "image": "https://i.postimg.cc/6q5Sxkdk/medical-help.jpg",
+        "goalAmount": 400000,
+        "raisedAmount": 315000,
+        "donors": 680,
+        "location": "ঢাকা, বাংলাদেশ",
+        "status": "Ongoing"
+    },
+    {
+        "id": 7,
+        "title": "পরিষ্কার পানির জন্য নলকূপ স্থাপন",
+        "category": "Water & Sanitation",
+        "description": "পানির অভাবে ভোগা গ্রামীণ এলাকায় গভীর নলকূপ স্থাপন প্রকল্প।",
+        "image": "https://i.postimg.cc/L6my3LM4/water-pump.jpg",
+        "goalAmount": 150000,
+        "raisedAmount": 89000,
+        "donors": 205,
+        "location": "ময়মনসিংহ, বাংলাদেশ",
+        "status": "Ongoing"
+    },
+    {
+        "id": 8,
+        "title": "রাস্তাঘাট মেরামত ও উন্নয়ন",
+        "category": "Community Development",
+        "description": "গ্রামের ভাঙাচোরা রাস্তা মেরামত ও নতুন ড্রেনেজ ব্যবস্থা স্থাপন।",
+        "image": "https://i.postimg.cc/76q4jXyg/road-repair.jpg",
+        "goalAmount": 250000,
+        "raisedAmount": 130000,
+        "donors": 180,
+        "location": "বরিশাল, বাংলাদেশ",
+        "status": "Ongoing"
+    },
+    {
+        "id": 9,
+        "title": "বিশেষ চাহিদাসম্পন্ন শিশুদের সহায়তা",
+        "category": "Disability & Special Needs",
+        "description": "অটিজম ও অন্যান্য বিশেষ চাহিদাসম্পন্ন শিশুদের চিকিৎসা ও শিক্ষায় সহায়তা।",
+        "image": "https://i.postimg.cc/3xfg4kQ8/special-kids.jpg",
+        "goalAmount": 180000,
+        "raisedAmount": 112000,
+        "donors": 275,
+        "location": "খুলনা, বাংলাদেশ",
+        "status": "Ongoing"
+    }
+]

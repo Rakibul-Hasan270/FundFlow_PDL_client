@@ -1,23 +1,31 @@
 import { useForm } from "react-hook-form";
 import useAuth from "../../hook/useAuth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Login = () => {
-    const { register, formState: { errors }, handleSubmit } = useForm();
-    const { createUser } = useAuth();
+    const { register, formState: { errors }, reset, handleSubmit } = useForm();
+    const { signInUser } = useAuth();
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     const onSubmit = async (data) => {
         const email = data.email;
         const password = data.password;
         try {
-            createUser(email, password);
-
+            await signInUser(email, password);
+            toast.success('successfully login');
+            reset();
+            navigate(from, { replace: true });
         } catch (err) {
-            console.log(err.mesage);
+            toast.error(err?.message);
+            console.log(err.message);
         }
     }
 
     return (
-        <div className="max-w-xl p-16 border mx-auto rounded-2xl">
+        <div className="max-w-xl p-2 md:p-16 border mx-auto rounded-2xl">
             <p className="text-2xl text-center font-bold mb-8">Please Login</p>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="mb-5">
@@ -59,6 +67,7 @@ const Login = () => {
                 >
                     Login
                 </button>
+                <p className="mt-2.5">New here? <Link className="text-cyan-300" to='/register'>please register</Link></p>
             </form>
         </div>
     );
