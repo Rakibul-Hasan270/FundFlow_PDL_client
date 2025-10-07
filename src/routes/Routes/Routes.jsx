@@ -7,6 +7,7 @@ import Register from "../../pages/Register/Register";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import Secret from "../../components/Secret/Secret";
 import Payment from "../../pages/Payment/Payment";
+import CartDetails from "../../components/CartDetails/CartDetails";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +29,11 @@ const router = createBrowserRouter([
             {
                 path: '/payment',
                 element: <Payment></Payment>
+            },
+            {
+                path: '/cart-detail/:id',
+                element: <CartDetails></CartDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`)
             },
             {
                 path: '/login',

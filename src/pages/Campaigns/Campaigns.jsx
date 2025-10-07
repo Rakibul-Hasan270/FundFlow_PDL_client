@@ -3,7 +3,7 @@ import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import useCampaigns from "../../hook/useCampaigns";
 
 const Campaigns = () => {
-    const [campaigns, refetch, isLoading] = useCampaigns();
+    const [campaigns] = useCampaigns();
 
     return (
         <div className="max-w-7xl mx-auto mt-16 mb-10">

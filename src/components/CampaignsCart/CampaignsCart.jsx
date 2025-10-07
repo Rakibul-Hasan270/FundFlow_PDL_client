@@ -30,7 +30,7 @@ const CampaignsCart = ({ campaigns }) => {
                             </span>
                         ))}
                     </div>
-                    <Link to={`/payment`} className="w-full md:w-1/3 btn-sm mt-2 self-start">
+                    <Link to={`/cart-detail/${campaigns._id}`} className="w-full md:w-1/3 btn-sm mt-2 self-start">
                         <button onClick={() => handelDonate(campaigns)} className="btn btn-primary">Donate Now</button>
                     </Link>
                 </div>
