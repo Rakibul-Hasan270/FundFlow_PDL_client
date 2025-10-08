@@ -15,7 +15,7 @@ const Testimonials = () => {
         queryKey: ['review'],
         queryFn: async () => {
             const res = await axiosPublic.get('/reviews');
-            console.log(res.data);
+            // console.log(res.data);
             return res.data;
         }
     })
@@ -26,7 +26,7 @@ const Testimonials = () => {
             <Swiper
                 slidesPerView={1}
                 spaceBetween={30}
-                loop={true}
+                loop={review.length > 1}
                 pagination={{
                     clickable: true,
                 }}

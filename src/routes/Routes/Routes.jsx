@@ -28,11 +28,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/payment',
-                element: <Payment></Payment>
+                element: <PrivateRoutes><Payment></Payment></PrivateRoutes>
             },
             {
                 path: '/cart-detail/:id',
-                element: <CartDetails></CartDetails>,
+                element: <PrivateRoutes><CartDetails></CartDetails></PrivateRoutes>,
                 loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`)
             },
             {

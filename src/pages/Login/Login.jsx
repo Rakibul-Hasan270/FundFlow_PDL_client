@@ -38,7 +38,6 @@ const Login = () => {
                     <input
                         {...register('email', { required: true })}
                         type="email"
-                        id="email"
                         className="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
                         placeholder="name@example.com"
                     />
@@ -55,7 +54,6 @@ const Login = () => {
                     <input
                         {...register('password', { required: true })}
                         type="password"
-                        id="password"
                         className="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light" placeholder="password"
                     />
                     {errors.password && <span className="text-red-500">Password is required</span>}

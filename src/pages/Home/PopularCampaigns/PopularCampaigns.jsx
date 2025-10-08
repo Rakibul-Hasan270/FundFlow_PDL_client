@@ -5,7 +5,7 @@ import useCampaigns from "../../../hook/useCampaigns";
 
 const PopularCampaigns = () => {
     const [campaigns, , isLoading] = useCampaigns();
-    console.log(campaigns);
+    // console.log(campaigns);
 
     if (isLoading) return <Loading></Loading>;
     return (

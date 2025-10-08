@@ -65,7 +65,6 @@ const Register = () => {
                         <input
                             {...register('name', { required: true })}
                             type="text"
-                            id="name"
                             className="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-500 dark:focus:border-yellow-500 dark:shadow-xs-light"
                             placeholder="name"
                         />
@@ -98,7 +97,6 @@ const Register = () => {
                         <input
                             {...register('email', { required: true })}
                             type="email"
-                            id="email"
                             className="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-500 dark:focus:border-yellow-500 dark:shadow-xs-light"
                             placeholder="name@example.com"
                         />
@@ -116,7 +114,6 @@ const Register = () => {
                         <input
                             {...register('password', { required: true })}
                             type="password"
-                            id="password"
                             className="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-500 dark:focus:border-yellow-500 dark:shadow-xs-light" placeholder="password"
                         />
                         {errors.password && <span className="text-red-500">Password is required</span>}
