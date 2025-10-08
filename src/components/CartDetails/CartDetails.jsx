@@ -1,27 +1,27 @@
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import useAuth from "../../hook/useAuth";
 import { useForm } from "react-hook-form";
-import useAxiosPublic from "../../hook/useAxiosPublic";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../../hook/useAxiosSecure";
 
 const CartDetails = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
-    const campaigns = useLoaderData();
+    // const campaigns = useLoaderData();
     const { user } = useAuth();
-    const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
     const navigate = useNavigate();
 
     const onSubmit = async (data) => {
-        const donationUserData = {
+        const donarData = {
             name: data.name,
             date: data.date,
             commenet: data.comment,
             amount: data.price,
             email: user.email,
-            donateCartId: campaigns._id
+            // donateCartId: campaigns._id
         }
-        const res = await axiosPublic.post('/donar-info', donationUserData);
+        const res = await axiosSecure.post('/donar-info', donarData);
         if (res.data.insertedId) {
             navigate('/payment');
             toast.success(`${data.name} your reqest is saved`);
@@ -105,7 +105,7 @@ const CartDetails = () => {
                             type="submit"
                             className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
                         >
-                            Payment
+                            Payment now
                         </button>
                     </div>
                 </form>

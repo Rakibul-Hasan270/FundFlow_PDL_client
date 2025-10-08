@@ -2,11 +2,6 @@ import { Link } from "react-router-dom";
 
 const CampaignsCart = ({ campaigns }) => {
 
-    const handelDonate = async (campaigns) => {
-
-        console.log(campaigns);
-    }
-
     return (
         <div className="relative card bg-white shadow-lg rounded-sm overflow-hidden hover:shadow-2xl transition-shadow duration-300">
             <figure className="relative h-48 overflow-hidden">
@@ -31,7 +26,7 @@ const CampaignsCart = ({ campaigns }) => {
                         ))}
                     </div>
                     <Link to={`/cart-detail/${campaigns._id}`} className="w-full md:w-1/3 btn-sm mt-2 self-start">
-                        <button onClick={() => handelDonate(campaigns)} className="btn btn-primary">Donate Now</button>
+                        <button className="btn btn-primary">Donate Now</button>
                     </Link>
                 </div>
             </div>

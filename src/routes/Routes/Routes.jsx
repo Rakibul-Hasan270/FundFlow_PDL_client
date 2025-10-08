@@ -33,7 +33,7 @@ const router = createBrowserRouter([
             {
                 path: '/cart-detail/:id',
                 element: <PrivateRoutes><CartDetails></CartDetails></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`)
+                // loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`)
             },
             {
                 path: '/login',

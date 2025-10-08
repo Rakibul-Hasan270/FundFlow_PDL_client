@@ -12,7 +12,7 @@ const useAxiosSecure = () => {
     axiosSecure.interceptors.request.use(config => {
         const token = localStorage.getItem('token');
         if (token) {
-            config.headers.Authorization = `Bearer ${token}`;
+            config.headers.authorization = `Bearer ${token}`;
         }
         return config;
     }, error => {
@@ -28,6 +28,7 @@ const useAxiosSecure = () => {
             navigate('/login');
         }
     })
+    return axiosSecure;
 };
 
 export default useAxiosSecure;
