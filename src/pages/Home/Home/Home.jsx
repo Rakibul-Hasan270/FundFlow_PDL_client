@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <div>
             <Carousel></Carousel>
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-7xl mx-auto md:space-y-28 md:mt-28">
                 <PopularCampaigns></PopularCampaigns>
                 <AboutUs></AboutUs>
                 <Testimonials></Testimonials>

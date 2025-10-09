@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../hook/useAuth";
 import useAxiosSecure from "../../hook/useAxiosSecure";
 import Loading from "../../components/Loading/Loading";
+import { TbCurrencyTaka } from "react-icons/tb";
+
 
 const PaymentHistory = () => {
     const { user } = useAuth();
@@ -15,6 +17,7 @@ const PaymentHistory = () => {
         }
     })
     if (isLoading) return <Loading></Loading>
+    if (paymentHistory.length === 0) return <p className="text-xl md:text-5xl text-center font-bold mt-10 md:mt-24 mb-10 md:mb-24">You haven’t completed any payment yet.</p>
     return (
         <div className="max-w-5xl mx-auto p-6">
             <h2 className="text-2xl font-semibold mb-4 text-center">
@@ -32,6 +35,9 @@ const PaymentHistory = () => {
                                 Transaction ID
                             </th>
                             <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
+                                Amount
+                            </th>
+                            <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
                                 Email
                             </th>
                             <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
@@ -44,6 +50,7 @@ const PaymentHistory = () => {
                             <tr key={payment._id} className="border-b hover:bg-gray-50 transition-colors">
                                 <td className="px-6 py-4 text-sm text-gray-600">{index + 1}</td>
                                 <td className="px-6 py-4 text-sm font-mono text-gray-800">{payment.transaction}</td>
+                                <td className="px-6 py-4 text-sm font-mono text-gray-800 flex items-center">{payment.amount / 100} <TbCurrencyTaka></TbCurrencyTaka></td>
                                 <td className="px-6 py-4 text-sm text-gray-800">{payment.email}</td>
                                 <td className="px-6 py-4 text-sm text-gray-600">
                                     {new Date(payment.date).toLocaleString()}

@@ -1,7 +1,8 @@
+import logo from '../../../assets/logo.png';
 
 const Footer = () => {
     return (
-        <div className="mt-52">
+        <div className=" md:mt-28">
             <footer className="flex justify-center px-4 text-gray-800 bg-white dark:text-white dark:bg-gray-900">
                 <div className="container px-6 py-6">
                     <h1 className="text-lg font-bold text-center lg:text-2xl">
@@ -26,8 +27,8 @@ const Footer = () => {
                     <div className="flex flex-col items-center justify-between md:flex-row">
                         <a href="#">
                             <img
-                                className="w-auto h-7"
-                                src="https://merakiui.com/images/full-logo.svg"
+                                className="w-auto h-7 rounded-full"
+                                src={logo}
                                 alt="Logo"
                             />
                         </a>

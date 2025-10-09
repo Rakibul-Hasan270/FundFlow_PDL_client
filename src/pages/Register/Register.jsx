@@ -51,7 +51,7 @@ const Register = () => {
     return (
         <div>
             <div className="max-w-xl p-2 md:p-16 border mx-auto rounded-2xl">
-                <p className="text-2xl text-center font-bold mb-8 text-yellow-300"> Please Register</p>
+                <p className="text-2xl text-center font-bold mb-8 text-blue-300"> Please Register</p>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     {/* name fild  */}
@@ -65,7 +65,7 @@ const Register = () => {
                         <input
                             {...register('name', { required: true })}
                             type="text"
-                            className="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-500 dark:focus:border-yellow-500 dark:shadow-xs-light"
+                            className="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
                             placeholder="name"
                         />
                         {errors.name && <span className="text-red-500">Name is required</span>}
@@ -97,7 +97,7 @@ const Register = () => {
                         <input
                             {...register('email', { required: true })}
                             type="email"
-                            className="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-500 dark:focus:border-yellow-500 dark:shadow-xs-light"
+                            className="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
                             placeholder="name@example.com"
                         />
                         {errors.email && <span className="text-red-500">Email is required</span>}
@@ -114,18 +114,18 @@ const Register = () => {
                         <input
                             {...register('password', { required: true })}
                             type="password"
-                            className="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-500 dark:focus:border-yellow-500 dark:shadow-xs-light" placeholder="password"
+                            className="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light" placeholder="password"
                         />
                         {errors.password && <span className="text-red-500">Password is required</span>}
                     </div>
 
                     <button
                         type="submit"
-                        className="w-full text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
+                        className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
                         Login
                     </button>
-                    <p className="mt-2.5">Already have account? <Link className="text-yellow-300" to='/login'>please login</Link></p>
+                    <p className="mt-2.5">Already have account? <Link className="text-blue-400" to='/login'>please login</Link></p>
                 </form>
             </div>
         </div>

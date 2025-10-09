@@ -25,7 +25,7 @@ const Login = () => {
     }
 
     return (
-        <div className="max-w-xl p-2 md:p-16 border mx-auto rounded-2xl">
+        <div className="max-w-xl p-2 md:p-16 mx-auto rounded-2xl bg-white dark:bg-gray-900 md:mt-10">
             <p className="text-2xl text-center font-bold mb-8">Please Login</p>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="mb-5">
@@ -65,7 +65,7 @@ const Login = () => {
                 >
                     Login
                 </button>
-                <p className="mt-2.5">New here? <Link className="text-blue-300" to='/register'>please register</Link></p>
+                <p className="mt-2.5">New here? <Link className="text-blue-400" to='/register'>please register</Link></p>
             </form>
         </div>
     );

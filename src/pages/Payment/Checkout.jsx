@@ -3,12 +3,14 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../hook/useAxiosSecure";
 import toast from "react-hot-toast";
 import useAuth from "../../hook/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
     const stripe = useStripe();
     const elements = useElements();
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
+    const navigate = useNavigate();
 
     const [donarInfo, setDonarInfo] = useState([]);
     const [clientSecret, setClientSecret] = useState('');
@@ -91,7 +93,7 @@ const Checkout = () => {
         if (confirmError) {
             console.error('[Confirm Error]', confirmError);
             setError(confirmError.message);
-        } else if (paymentIntent?.status === 'succeeded') {
+        } else if (paymentIntent.status === 'succeeded') {
             toast.success('Payment successful!');
             console.log('Payment Intent:', paymentIntent);
 
@@ -99,12 +101,15 @@ const Checkout = () => {
             const payment = {
                 email: user?.email,
                 date: new Date(),
-                transaction: paymentIntent.id
+                transaction: paymentIntent.id,
+                amount: amountInCents
             }
             const res = await axiosSecure.post('/payment', payment);
-            console.log('send data to server from chackout.jsx',res.data);
+            console.log('send data to server from chackout.jsx', res.data);
+            if (res.data.insertResult.insertedId) {
+                navigate('/payment-history');
+            }
         }
-
         setLoading(false);
     };
 

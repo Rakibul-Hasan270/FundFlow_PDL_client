@@ -24,16 +24,16 @@ const CartDetails = () => {
         const res = await axiosSecure.post('/donar-info', donarData);
         if (res.data.insertedId) {
             navigate('/payment');
-            toast.success(`${data.name} your reqest is saved`);
+            toast.success(`${data.name} processing your payment and save info.`);
             reset();
         }
     }
 
     return (
         <div className="mt-20 mb-28">
-            <SectionTitle heading='Kindly fill in the required details' subHeading='We’d love to hear from you! Please fill out the form'></SectionTitle>
+            <SectionTitle heading='Kindly fill in the required details' subHeading='We’d love to hear from you! Share your thoughts, questions, or feedback using the form below and help us connect with you better.'></SectionTitle>
             <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-                <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">
+                <h2 className="text-lg font-semibold text-gray-700 dark:text-white">
                     Please fill up form
                 </h2>
 
@@ -103,7 +103,7 @@ const CartDetails = () => {
                     <div className="flex justify-end mt-6">
                         <button
                             type="submit"
-                            className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
+                            className="flex items-center gap-3 cursor-pointer px-6 py-3 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition w-max"
                         >
                             Payment now
                         </button>

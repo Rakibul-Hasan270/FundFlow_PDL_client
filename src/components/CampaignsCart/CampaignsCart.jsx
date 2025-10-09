@@ -14,7 +14,8 @@ const CampaignsCart = ({ campaigns }) => {
                     alt={campaigns.title}
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <h2 className="text-white font-bold text-lg">{campaigns.title}</h2>
                     <p className="text-gray-200 text-sm">{campaigns.location}</p>
                 </div>

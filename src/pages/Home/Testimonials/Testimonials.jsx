@@ -21,8 +21,10 @@ const Testimonials = () => {
     })
 
     return (
-        <div className='mb-52'>
-            <SectionTitle heading='Testimonials' subHeading='kdhfgkhdkfghk'></SectionTitle>
+        <div>
+            <div className='md:w-[600px] mx-auto'>
+                <SectionTitle heading='Testimonials' subHeading='The genuine stories of our donors and beneficiaries inspire trust and encourage others to give, showing how every contribution creates real impact.'></SectionTitle>
+            </div>
             <Swiper
                 slidesPerView={1}
                 spaceBetween={30}

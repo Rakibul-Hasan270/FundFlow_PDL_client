@@ -8,6 +8,7 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import Payment from "../../pages/Payment/Payment";
 import CartDetails from "../../components/CartDetails/CartDetails";
 import PaymentHistory from "../../pages/PaymentHistory/PaymentHistory";
+import AddReview from "../../pages/AddReview/AddReview";
 
 const router = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
             {
                 path: '/payment-history',
                 element: <PrivateRoutes><PaymentHistory></PaymentHistory></PrivateRoutes>
+            },
+            {
+                path: '/add-review',
+                element: <PrivateRoutes><AddReview></AddReview></PrivateRoutes>
             },
             {
                 path: '/login',

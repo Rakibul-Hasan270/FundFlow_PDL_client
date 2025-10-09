@@ -14,6 +14,8 @@ const Navbar = () => {
 
         {user && <li><NavLink to="/payment-history" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Payment History</NavLink></li>}
 
+        {user && <li><NavLink to="/add-review" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Add Review</NavLink></li>}
+
         {user ? '' : <li><NavLink to="/login" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Login</NavLink></li>}
     </div>
 
