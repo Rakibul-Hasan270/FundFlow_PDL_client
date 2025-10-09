@@ -9,6 +9,7 @@ import Payment from "../../pages/Payment/Payment";
 import CartDetails from "../../components/CartDetails/CartDetails";
 import PaymentHistory from "../../pages/PaymentHistory/PaymentHistory";
 import AddReview from "../../pages/AddReview/AddReview";
+import ManageUser from "../../pages/Dashboard/ManageUser/ManageUser";
 
 const router = createBrowserRouter([
     {
@@ -47,7 +48,14 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+
+            // admin role path
+            {
+                path: '/manage-user',
+                element: <ManageUser></ManageUser>
             }
+
         ]
     }
 ])

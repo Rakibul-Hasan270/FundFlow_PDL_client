@@ -18,35 +18,48 @@ const Register = () => {
 
 
     const onSubmit = async (data) => {
-        const imageFile = { image: data.photo[0] };
-        const resImg = await axiosPublic.post(image_hosting_api, imageFile, {
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
-        })
-        if (resImg.data.success) {
-            const name = data.name;
-            const email = data.email;
-            const password = data.password;
-            const photo = resImg.data.data.display_url;
-            const userInfo = { name, email, photo };
+        let photoURL = '';
+
+        if (data.photo && data.photo[0]) {
+            const formData = new FormData();
+            formData.append('image', data.photo[0]);
             try {
-                await createUser(email, password);
-                await updateUserProfile(name, photo);
-                // post user server 
-                const resUser = await axiosPublic.post('/users', userInfo);
-                if (resUser.data.insertedId) {
-                    toast.success('successfully register');
-                    navigate(from, { replace: true });
-                    reset();
+                const resImg = await axiosPublic.post(image_hosting_api, formData, {
+                    headers: {
+                        'content-type': 'multipart/form-data',
+                    },
+                });
+
+                if (resImg.data.success) {
+                    photoURL = resImg.data.data.display_url;
                 }
             } catch (err) {
+                console.log("Image upload failed:", err.message);
                 toast.error(err?.message);
-                console.log(err.mesage);
             }
         }
+        const name = data.name;
+        const email = data.email;
+        const password = data.password;
+        const photo = photoURL || 'https://i.ibb.co.com/7JXwFp6k/pexels-ahmedadly-1270184.jpg';
+        const userInfo = { name, email, photo };
 
-    }
+        try {
+            await createUser(email, password);
+            await updateUserProfile(name, photo);
+
+            const resUser = await axiosPublic.post('/users', userInfo);
+            if (resUser.data.insertedId) {
+                toast.success('Successfully registered');
+                navigate(from, { replace: true });
+                reset();
+            }
+        } catch (err) {
+            toast.error(err?.message);
+            console.log(err.message);
+        }
+    };
+
 
     return (
         <div>
@@ -80,7 +93,7 @@ const Register = () => {
                             Your Photo
                         </label>
                         <input
-                            {...register('photo', { required: true })}
+                            {...register('photo')}
                             type="file" className="file-input  file-input-warning w-full"
                         />
                         {errors.photo && <span className="text-red-500">Photo is required</span>}

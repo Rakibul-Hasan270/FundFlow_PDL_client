@@ -6,17 +6,35 @@ import { BiLogOutCircle } from "react-icons/bi";
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
+    const isAdmin = true;
 
     const links = <div className='md:flex justify-end items-center'>
-        <li><NavLink to="/" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Home</NavLink></li>
 
-        <li><NavLink to="/campaigns" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Campaigns</NavLink></li>
 
-        {user && <li><NavLink to="/payment-history" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Payment History</NavLink></li>}
+        {
+            isAdmin ?
+                <>
+                    <li><NavLink to="/" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Home</NavLink></li>
 
-        {user && <li><NavLink to="/add-review" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Add Review</NavLink></li>}
+                    <li><NavLink to="/campaigns" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Campaigns</NavLink></li>
 
-        {user ? '' : <li><NavLink to="/login" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Login</NavLink></li>}
+                    {user && isAdmin && <li><NavLink to="/manage-user" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Manage User</NavLink></li>}
+                </>
+                : <>
+                    <li><NavLink to="/" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Home</NavLink></li>
+
+                    <li><NavLink to="/campaigns" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Campaigns</NavLink></li>
+
+                    {user && <li><NavLink to="/payment-history" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Payment History</NavLink></li>}
+
+                    {user && <li><NavLink to="/add-review" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Add Review</NavLink></li>}
+
+                    {user ? '' : <li><NavLink to="/login" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Login</NavLink></li>}
+                </>
+        }
+
+
+
     </div>
 
     return (
