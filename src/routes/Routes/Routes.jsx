@@ -10,6 +10,7 @@ import CartDetails from "../../components/CartDetails/CartDetails";
 import PaymentHistory from "../../pages/PaymentHistory/PaymentHistory";
 import AddReview from "../../pages/AddReview/AddReview";
 import ManageUser from "../../pages/Dashboard/ManageUser/ManageUser";
+import AddCampaigns from "../../pages/Dashboard/AddCampaigns/AddCampaigns";
 
 const router = createBrowserRouter([
     {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
             {
                 path: '/manage-user',
                 element: <ManageUser></ManageUser>
+            },
+            {
+                path: '/add-campaigns',
+                element: <AddCampaigns></AddCampaigns>
             }
 
         ]
