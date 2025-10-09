@@ -8,7 +8,7 @@ const Campaigns = () => {
     return (
         <div className="max-w-7xl mx-auto mt-16 mb-10">
             <div className="text-center mb-10">
-                <p className="flex items-center justify-center gap-2 md:w-xl mb-3 mx-auto font-bold text-cyan-500">Donate to Active Campaigns</p>
+                <p className="flex items-center justify-center gap-2 md:w-xl mb-3 mx-auto font-bold text-blue-500">Donate to Active Campaigns</p>
                 <h1 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
                     Together, We Can Create a <br /> Better
                     <span className="text-transparent ml-4 bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-600">

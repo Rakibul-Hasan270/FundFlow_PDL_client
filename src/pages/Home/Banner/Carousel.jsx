@@ -3,62 +3,67 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
 import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules';
 import Slider from './Slider';
 
+import banner0 from '../../../assets/banner/banner0.jpg';
+import banner1 from '../../../assets/banner/banner1.jpg';
+import banner2 from '../../../assets/banner/banner2.jpg';
+import banner3 from '../../../assets/banner/banner3.jpg';
+import banner4 from '../../../assets/banner/banner4.jpg';
+import banner5 from '../../../assets/banner/banner5.jpg';
+
 const Carousel = () => {
 
-    const bannerData = [
-        {
-            title: "🤝 একসাথে গড়ে তুলি একটি সহানুভূতিশীল সমাজ",
-            imageUrl: "https://i.postimg.cc/N0m1ryMJ/donation-banner1.jpg",
-            buttonText: ["Donate Now", "See All Campaigns"]
-        },
-        {
-            title: "🏠 গৃহহীনদের জন্য আশ্রয় — আপনার সাহায্য বদলে দিতে পারে একটি জীবন",
-            imageUrl: "https://i.postimg.cc/FKpXPLd5/donation-banner2.jpg",
-            buttonText: ["Support This Cause", "View Details"]
-        },
-        {
-            title: "🍛 ক্ষুধার বিরুদ্ধে লড়াই — এক বেলা খাবার দান করুন",
-            imageUrl: "https://i.postimg.cc/3NmpmPM6/donation-banner3.jpg",
-            buttonText: ["Donate Food", "See More"]
-        },
-        {
-            title: "📚 শিক্ষার আলো ছড়াতে এগিয়ে আসুন",
-            imageUrl: "https://i.postimg.cc/6qFZjXtp/donation-banner4.jpg",
-            buttonText: ["Sponsor Education", "View Campaigns"]
-        },
-        {
-            title: "🚑 দুর্যোগে মানবসেবা — সময় এখন একত্র হওয়ার",
-            imageUrl: "https://i.postimg.cc/W1LdmCpj/donation-banner5.jpg",
-            buttonText: ["Help Now", "See Emergency Appeals"]
-        }
-    ];
+  const bannerData = [
+    {
+      title: "Together, let's build a compassionate society",
+      imageUrl: banner0
+    },
+    {
+      title: "Shelter for the homeless — your support can change a life",
+      imageUrl: banner1
+    },
+    {
+      title: "Fight against hunger — donate a meal",
+      imageUrl: banner2
+    },
+    {
+      title: "Step forward to spread the light of education",
+      imageUrl: banner3
+    },
+    {
+      title: "Serve humanity in times of disaster — the time to unite is now",
+      imageUrl: banner4
+    },
+    {
+      title: "Contribute to the path of humanity",
+      imageUrl: banner5
+    }
+  ];
 
-    return (
-        <div className=''>
-            <Swiper
-                spaceBetween={30}
-                effect={'fade'}
-                navigation={true}
-                pagination={{
-                    clickable: true,
-                }}
-                autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false
-                }}
-                modules={[EffectFade, Navigation, Pagination, Autoplay]}
-                className="mySwiper"
-            >
-                {
-                    bannerData.map((banner, idx) => <SwiperSlide key={idx}><Slider info={banner}></Slider></SwiperSlide>)
-                }
-            </Swiper>
-        </div>
-    );
+  return (
+    <div className="w-full">
+      <Swiper
+        spaceBetween={30}
+        effect="fade"
+        navigation
+        pagination={{ clickable: true }}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        modules={[EffectFade, Navigation, Pagination, Autoplay]}
+        className="mySwiper"
+      >
+        {bannerData.map((banner, idx) => (
+          <SwiperSlide key={idx}>
+            <Slider info={banner} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
 };
 
 export default Carousel;

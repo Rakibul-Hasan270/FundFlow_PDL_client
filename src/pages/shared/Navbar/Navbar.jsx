@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../hook/useAuth";
 import logo from '../../../assets/logo.png';
+import { BiLogOutCircle } from "react-icons/bi";
 
 
 const Navbar = () => {
@@ -8,9 +9,12 @@ const Navbar = () => {
 
     const links = <div className='md:flex justify-end items-center'>
         <li><NavLink to="/" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Home</NavLink></li>
+
         <li><NavLink to="/campaigns" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Campaigns</NavLink></li>
-        <li><NavLink to="/secret" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Secret</NavLink></li>
-        {user ? <button onClick={() => logOut()} className="btn btn-xs">log out</button> : <li><NavLink to="/login" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Login</NavLink></li>}
+
+        {user && <li><NavLink to="/payment-history" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Payment History</NavLink></li>}
+
+        {user ? '' : <li><NavLink to="/login" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Login</NavLink></li>}
     </div>
 
     return (
@@ -33,6 +37,26 @@ const Navbar = () => {
                     {links}
                 </ul>
             </div>
+
+            {
+                user && <div className="navbar-end mr-4 md:w-[100px]">
+                    <div className="dropdown dropdown-end rounded-field border-2 border-blue-400 rounded-full">
+                        <div title={user ? user.displayName : 'Profile'} tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full">
+                                {
+                                    user ? <img src={user?.photoURL} alt="" /> : <img alt="Tailwind CSS Navbar component"
+                                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                }
+                            </div>
+                        </div>
+                        <ul
+                            tabIndex={0}
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            <li onClick={() => logOut()}><a className="hover:bg-blue-700 hover:text-white"><BiLogOutCircle></BiLogOutCircle> Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            }
         </div >
     );
 };

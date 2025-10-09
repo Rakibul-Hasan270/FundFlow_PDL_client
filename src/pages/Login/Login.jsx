@@ -65,7 +65,7 @@ const Login = () => {
                 >
                     Login
                 </button>
-                <p className="mt-2.5">New here? <Link className="text-cyan-300" to='/register'>please register</Link></p>
+                <p className="mt-2.5">New here? <Link className="text-blue-300" to='/register'>please register</Link></p>
             </form>
         </div>
     );

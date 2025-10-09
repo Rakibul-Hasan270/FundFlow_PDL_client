@@ -5,9 +5,9 @@ import Campaigns from "../../pages/Campaigns/Campaigns";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
-import Secret from "../../components/Secret/Secret";
 import Payment from "../../pages/Payment/Payment";
 import CartDetails from "../../components/CartDetails/CartDetails";
+import PaymentHistory from "../../pages/PaymentHistory/PaymentHistory";
 
 const router = createBrowserRouter([
     {
@@ -23,10 +23,6 @@ const router = createBrowserRouter([
                 element: <Campaigns></Campaigns>
             },
             {
-                path: '/secret',
-                element: <PrivateRoutes><Secret></Secret></PrivateRoutes>
-            },
-            {
                 path: '/payment',
                 element: <PrivateRoutes><Payment></Payment></PrivateRoutes>
             },
@@ -34,6 +30,10 @@ const router = createBrowserRouter([
                 path: '/cart-detail/:id',
                 element: <PrivateRoutes><CartDetails></CartDetails></PrivateRoutes>,
                 // loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`)
+            },
+            {
+                path: '/payment-history',
+                element: <PrivateRoutes><PaymentHistory></PaymentHistory></PrivateRoutes>
             },
             {
                 path: '/login',
