@@ -5,6 +5,7 @@ import useCampaigns from "../../../hook/useCampaigns";
 import Notiflix from "notiflix";
 import useAxiosSecure from "../../../hook/useAxiosSecure";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const EditCampaigns = () => {
     const [campaigns, refetch, isLoading] = useCampaigns();
@@ -45,25 +46,12 @@ const EditCampaigns = () => {
         );
     }
 
-    const handleEdit = camp => {
-        async () => {
-            try {
-                const resEdit = await axiosSecure.patch(`/campaigns/${camp._id}`, camp);
-                console.log(resEdit.data);
-
-            } catch (error) {
-                console.error(error);
-                toast.error(error?.message);
-            }
-        },
-    }
-
-    if (isLoading) return <Loading></Loading>
+    if (isLoading) return <Loading></Loading>;
     return (
         <div className="max-w-6xl mx-auto mt-8 md:mt-16">
             <SectionTitle heading='Edit Campaign Details' subHeading='Update the campaign information to keep it accurate and up to date.'></SectionTitle>
 
-            <p className="text-xl md:text-2xl font-semibold md:font-bold text-center mb-3.5 md:mb-6">Total campaigns{campaigns.length}</p>
+            <p className="text-xl md:text-2xl font-semibold md:font-bold text-center mb-3.5 md:mb-6">Total campaigns: ({campaigns.length})</p>
 
             <div className="overflow-x-auto">
                 <table className="table">
@@ -101,7 +89,9 @@ const EditCampaigns = () => {
                                     <span className="badge badge-ghost badge-sm">{camp.tags.map((tag, idx) => <p className="badge" key={idx}>{tag}</p>)}</span>
                                 </td>
                                 <td>
-                                    <button onClick={() => handleEdit(camp)} title="Edit campaigns" className="btn"><FaEdit className="text-cyan-400"></FaEdit></button>
+                                    <Link to={`/update-campaigns/${camp._id}`}>
+                                        <button title="Edit campaigns" className="btn"><FaEdit className="text-cyan-400"></FaEdit></button>
+                                    </Link>
                                 </td>
                                 <th>
                                     <button onClick={() => handleDelete(camp)} title="Delete campaigns" className="btn"><FaTrashAlt className="text-red-600"></FaTrashAlt></button>

@@ -12,6 +12,7 @@ import AddReview from "../../pages/AddReview/AddReview";
 import ManageUser from "../../pages/Dashboard/ManageUser/ManageUser";
 import AddCampaigns from "../../pages/Dashboard/AddCampaigns/AddCampaigns";
 import EditCampaigns from "../../pages/Dashboard/EditCampaigns/EditCampaigns";
+import UpdateCampaigns from "../../pages/Dashboard/UpdateCampaigns/UpdateCampaigns";
 
 const router = createBrowserRouter([
     {
@@ -66,6 +67,11 @@ const router = createBrowserRouter([
             {
                 path: '/edit-campaigns',
                 element: <EditCampaigns></EditCampaigns>
+            },
+            {
+                path: '/update-campaigns/:id',
+                element: <UpdateCampaigns></UpdateCampaigns>,
+                loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`)
             }
         ]
     }

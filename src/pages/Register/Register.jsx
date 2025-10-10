@@ -3,6 +3,7 @@ import useAuth from "../../hook/useAuth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import useAxiosPublic from "../../hook/useAxiosPublic";
+import { useState } from "react";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -13,11 +14,13 @@ const Register = () => {
     const axiosPublic = useAxiosPublic();
     const navigate = useNavigate();
     const location = useLocation();
+    const [loading, setLoading] = useState(false);
 
     let from = location.state?.from?.pathname || "/";
 
 
     const onSubmit = async (data) => {
+        setLoading(true);
         let photoURL = '';
 
         if (data.photo && data.photo[0]) {
@@ -57,6 +60,8 @@ const Register = () => {
         } catch (err) {
             toast.error(err?.message);
             console.log(err.message);
+        }finally{
+            setLoading(false)
         }
     };
 
@@ -133,10 +138,11 @@ const Register = () => {
                     </div>
 
                     <button
+                    disabled={loading}
                         type="submit"
                         className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
-                        Login
+                      {loading? 'wait a fiew sec..': 'Register'}
                     </button>
                     <p className="mt-2.5">Already have account? <Link className="text-blue-400" to='/login'>please login</Link></p>
                 </form>

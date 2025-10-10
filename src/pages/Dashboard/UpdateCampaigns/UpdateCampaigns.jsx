@@ -1,5 +1,6 @@
-import { useForm } from "react-hook-form";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../hook/useAxiosSecure";
 import useAxiosPublic from "../../../hook/useAxiosPublic";
 import toast from "react-hot-toast";
@@ -8,40 +9,57 @@ import { useState } from "react";
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
-const AddCampaigns = () => {
-    const { register, formState: { errors }, handleSubmit, reset } = useForm();
+const UpdateCampaigns = () => {
+    const { register, handleSubmit, reset } = useForm();
+    const campaigns = useLoaderData();
     const axiosSecure = useAxiosSecure();
     const axiosPublic = useAxiosPublic();
+    const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
 
     const onSubmit = async (data) => {
         setLoading(true);
-        const imageFile = { image: data.image[0] };
-        const resImg = await axiosPublic.post(image_hosting_api, imageFile, {
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
-        })
-        if (resImg.data.success) {
+        let image = '';
+        if (data.image && data.image[0]) {
+            const formData = new FormData();
+            formData.append('image', data.image[0]);
             try {
-                const formattedData = { ...data, image: resImg.data.data.display_url, tags: data.tags.split(",").map(tag => tag.trim()) };
-                const resPostData = await axiosSecure.post('/campaigns', formattedData);
-                if (resPostData.data.insertedId) {
-                    toast.success('Campaigns added successfully');
-                    reset();
+                const resImg = await axiosPublic.post(image_hosting_api, formData, {
+                    headers: {
+                        'content-type': 'multipart/form-data',
+                    },
+                });
+
+                if (resImg.data.success) {
+                    image = resImg.data.data.display_url;
                 }
             } catch (err) {
+                console.log("Image upload failed:", err?.message);
                 toast.error(err?.message);
-                console.log(err?.message);
-            } finally {
-                setLoading(false);
             }
+        }
+        const updateInfo = { ...data, image: image || 'https://i.ibb.co.com/7JXwFp6k/pexels-ahmedadly-1270184.jpg', tags: data.tags.split(",").map(tag => tag.trim()) };
+
+        try {
+            const resUpdate = await axiosSecure.patch(`/campaigns/${campaigns._id}`, updateInfo);
+            if (resUpdate.data.modifiedCount > 0) {
+                toast.success(' Update Successfully');
+                reset();
+                navigate('/edit-campaigns');
+            }
+        } catch (err) {
+            toast.error(err?.message);
+            console.log(err.message);
+        }
+        finally {
+            setLoading(false);
         }
     };
 
+
     return (
         <div className="max-w-6xl mx-auto">
-            <SectionTitle heading='Create a New Campaign' subHeading='Start a meaningful journey by launching a new donation campaign. Share your cause, inspire others, and make a real difference in the community.'></SectionTitle>
+            <SectionTitle heading='Edit Campaign' subHeading='Start a meaningful journey by launching a new donation campaign. Share your cause, inspire others, and make a real difference in the community.'></SectionTitle>
 
             <div className="max-w-2xl mx-auto">
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -49,19 +67,20 @@ const AddCampaigns = () => {
                     <div>
                         <label className="block mb-1 font-semibold">Title</label>
                         <input
-                            {...register("title", { required: true })}
+                            defaultValue={campaigns.title}
+                            {...register("title")}
                             type="text"
                             placeholder="Free Health Camp for Rural Families"
                             className="w-full border p-2 rounded"
                         />
-                        {errors.title && <span className="text-red-500 text-xs">Title is required</span>}
                     </div>
 
                     {/* Category */}
                     <div>
                         <label className="block mb-1 font-semibold">Category</label>
                         <select
-                            {...register("category", { required: true })}
+                            defaultValue={campaigns.category}
+                            {...register("category")}
                             className="w-full border p-2 rounded bg-white text-gray-800 dark:bg-gray-800 dark:text-white"
                         >
                             <option value="">Select a category</option>
@@ -70,25 +89,24 @@ const AddCampaigns = () => {
                             <option value="Food">Food</option>
                             <option value="Shelter">Shelter</option>
                         </select>
-                        {errors.category && <span className="text-red-500 text-xs">Category is required</span>}
                     </div>
 
                     {/* Description */}
                     <div>
                         <label className="block mb-1 font-semibold">Description</label>
                         <textarea
-                            {...register("description", { required: true })}
+                            defaultValue={campaigns.description}
+                            {...register("description")}
                             rows={3}
                             placeholder="Providing free checkups, medicines, and health awareness to rural communities."
                             className="w-full border p-2 rounded"
                         />
-                        {errors.description && <span className="text-red-500 text-xs">Description is required</span>}
                     </div>
 
                     {/* image fild  */}
                     <div>
                         <input
-                            {...register('image', { required: true })}
+                            {...register('image')}
                             type="file"
                             id="image"
                             className="block w-full px-3 py-2 mt-2 text-sm text-gray-600 bg-white border border-gray-200 rounded-lg 
@@ -98,45 +116,46 @@ const AddCampaigns = () => {
                focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 
                dark:focus:border-blue-300"
                         />
-                        {errors.image && <span className="text-red-500 text-xs">Image is required</span>}
                     </div>
 
                     {/* Location */}
                     <div>
                         <label className="block mb-1 font-semibold">Location</label>
                         <input
-                            {...register("location", { required: true })}
+                            defaultValue={campaigns.location}
+                            {...register("location")}
                             type="text"
                             placeholder="Kushtia, Bangladesh"
                             className="w-full border p-2 rounded"
                         />
-                        {errors.location && <span className="text-red-500 text-xs">Location is required</span>}
                     </div>
 
                     {/* Tags */}
                     <div>
                         <label className="block mb-1 font-semibold">Tags (comma separated)</label>
                         <input
-                            {...register("tags", { required: true })}
+                            defaultValue={campaigns.tags?.join(", ")}
+                            {...register("tags")}
                             type="text"
                             placeholder="health, rural"
                             className="w-full border p-2 rounded"
                         />
-                        {errors.tags && <span className="text-red-500 text-xs">Tags are required</span>}
                     </div>
 
                     <button
-                        disabled={loading}
                         type="submit"
+                        disabled={loading}
                         className="w-full bg-blue-600 text-white py-2 rounded font-semibold hover:bg-blue-700 transition"
                     >
-                        {loading ? <div className="flex items-center justify-center gap-2">
-                            <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
-                            </svg>
-                            Processing...
-                        </div> : 'Add Campaign'}
+                        {loading ? (
+                            <div className="flex items-center justify-center gap-2">
+                                <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                                </svg>
+                                Updating...
+                            </div>
+                        ) : 'Update Campaign'}
                     </button>
                 </form>
             </div>
@@ -145,4 +164,16 @@ const AddCampaigns = () => {
     );
 };
 
-export default AddCampaigns;
+export default UpdateCampaigns;
+
+
+// async () => {
+//             try {
+//                 const resEdit = await axiosSecure.patch(`/campaigns/${camp._id}`, camp);
+//                 console.log(resEdit.data);
+
+//             } catch (error) {
+//                 console.error(error);
+//                 toast.error(error?.message);
+//             }
+//         }
