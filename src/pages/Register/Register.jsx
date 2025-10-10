@@ -63,7 +63,7 @@ const Register = () => {
 
     return (
         <div>
-            <div className="max-w-xl p-2 md:p-16 border mx-auto rounded-2xl">
+            <div className="max-w-xl p-2 md:p-16 mx-auto rounded-2xl bg-white dark:bg-gray-900 md:mt-10">
                 <p className="text-2xl text-center font-bold mb-8 text-blue-300"> Please Register</p>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
@@ -94,7 +94,7 @@ const Register = () => {
                         </label>
                         <input
                             {...register('photo')}
-                            type="file" className="file-input  file-input-warning w-full"
+                            type="file" className="file-input w-full"
                         />
                         {errors.photo && <span className="text-red-500">Photo is required</span>}
                     </div>

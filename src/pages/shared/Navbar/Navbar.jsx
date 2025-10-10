@@ -19,8 +19,10 @@ const Navbar = () => {
                     <li><NavLink to="/campaigns" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Campaigns</NavLink></li>
 
                     {user && isAdmin && <li><NavLink to="/manage-user" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Manage User</NavLink></li>}
-                    
+
                     {user && isAdmin && <li><NavLink to="/add-campaigns" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Add Campaigns</NavLink></li>}
+
+                    {user && isAdmin && <li><NavLink to="/edit-campaigns" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Edit Campaigns</NavLink></li>}
                 </>
                 : <>
                     <li><NavLink to="/" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Home</NavLink></li>

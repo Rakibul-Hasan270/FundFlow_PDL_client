@@ -11,12 +11,15 @@ import PaymentHistory from "../../pages/PaymentHistory/PaymentHistory";
 import AddReview from "../../pages/AddReview/AddReview";
 import ManageUser from "../../pages/Dashboard/ManageUser/ManageUser";
 import AddCampaigns from "../../pages/Dashboard/AddCampaigns/AddCampaigns";
+import EditCampaigns from "../../pages/Dashboard/EditCampaigns/EditCampaigns";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
         children: [
+
+            // user role path 
             {
                 path: '/',
                 element: <Home></Home>
@@ -59,8 +62,11 @@ const router = createBrowserRouter([
             {
                 path: '/add-campaigns',
                 element: <AddCampaigns></AddCampaigns>
+            },
+            {
+                path: '/edit-campaigns',
+                element: <EditCampaigns></EditCampaigns>
             }
-
         ]
     }
 ])
