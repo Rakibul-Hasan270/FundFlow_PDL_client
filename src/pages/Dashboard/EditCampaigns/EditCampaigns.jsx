@@ -79,7 +79,7 @@ const EditCampaigns = () => {
                                         </div>
                                         <div>
                                             <div className="font-bold">{camp.title}</div>
-                                            <div className="text-sm opacity-50"></div>
+                                            <div className="text-sm opacity-50">{camp.category}</div>
                                         </div>
                                     </div>
                                 </td>

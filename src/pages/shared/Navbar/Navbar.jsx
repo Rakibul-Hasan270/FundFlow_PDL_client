@@ -12,53 +12,24 @@ const Navbar = () => {
     const links =
         <div className='md:flex justify-end items-center'>
             {/* common role  */}
-            <li><NavLink to="/" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Home</NavLink></li>
-            <li><NavLink to="/campaigns" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Campaigns</NavLink></li>
-            {user ? '' : <li><NavLink to="/login" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Login</NavLink></li>}
+            <li><NavLink to="/" className={({ isActive }) => isActive ? "text-blue-400 font-bold " : "text-blue-500"}>Home</NavLink></li>
+            <li><NavLink to="/campaigns" className={({ isActive }) => isActive ? "text-blue-400 font-bold " : "text-blue-500"}>Campaigns</NavLink></li>
+            {user ? '' : <li><NavLink to="/login" className={({ isActive }) => isActive ? "text-blue-400 font-bold " : "text-blue-500"}>Login</NavLink></li>}
 
             {/* user role  */}
             {
                 user && !isAdmin ? <>
-                    <li> <NavLink to="/payment-history" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Payment History</NavLink></li>
+                    <li> <NavLink to="/payment-history" className={({ isActive }) => isActive ? "text-blue-400 font-bold " : "text-blue-500"}>Payment History</NavLink></li>
 
-                    <li><NavLink to="/add-review" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Add Review</NavLink></li>
+                    <li><NavLink to="/add-review" className={({ isActive }) => isActive ? "text-blue-400 font-bold " : "text-blue-500"}>Add Review</NavLink></li>
                 </> : ''
             }
 
             {/* admine role  */}
-            {isAdmin && <li><NavLink to="/manage-user" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Manage User</NavLink></li>}
-            {isAdmin && <li><NavLink to="/add-campaigns" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Add Campaigns</NavLink></li>}
-            {isAdmin && <li><NavLink to="/edit-campaigns" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Edit Campaigns</NavLink></li>}
+            {isAdmin && <li><NavLink to="/manage-user" className={({ isActive }) => isActive ? "text-blue-400 font-bold " : "text-blue-500"}>Manage User</NavLink></li>}
+            {isAdmin && <li><NavLink to="/add-campaigns" className={({ isActive }) => isActive ? "text-blue-400 font-bold " : "text-blue-500"}>Add Campaigns</NavLink></li>}
+            {isAdmin && <li><NavLink to="/edit-campaigns" className={({ isActive }) => isActive ? "text-blue-400 font-bold " : "text-blue-500"}>Edit Campaigns</NavLink></li>}
         </div >
-
-    // const links = <div className='md:flex justify-end items-center'>
-
-    //     {
-    //         isAdmin ?
-    //             <>
-    //                 <li><NavLink to="/" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Home</NavLink></li>
-
-    //                 <li><NavLink to="/campaigns" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Campaigns</NavLink></li>
-
-    //                 {user && isAdmin && <li><NavLink to="/manage-user" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Manage User</NavLink></li>}
-
-    //                 {user && isAdmin && <li><NavLink to="/add-campaigns" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Add Campaigns</NavLink></li>}
-
-    //                 {user && isAdmin && <li><NavLink to="/edit-campaigns" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Edit Campaigns</NavLink></li>}
-    //             </>
-    //             : <>
-    //                 <li><NavLink to="/" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Home</NavLink></li>
-
-    //                 <li><NavLink to="/campaigns" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Campaigns</NavLink></li>
-
-    //                 {user && <li><NavLink to="/payment-history" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Payment History</NavLink></li>}
-
-    //                 {user && <li><NavLink to="/add-review" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Add Review</NavLink></li>}
-
-    //                 {user ? '' : <li><NavLink to="/login" className={({ isActive }) => isActive ? "text-blue-400 font-bold underline" : "text-blue-500"}>Login</NavLink></li>}
-    //             </>
-    //     }
-    // </div>
 
     return (
         <div className="max-w-7xl mx-auto navbar bg-base-100 shadow-sm md:flex md:justify-center md:items-center">

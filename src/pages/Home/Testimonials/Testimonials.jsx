@@ -50,7 +50,7 @@ const Testimonials = () => {
                             </svg>
 
                             <blockquote>
-                                <p className="font-medium text-gray-900 dark:text-white">
+                                <p className="md:font-medium text-gray-900 dark:text-white">
                                     {review.review}
                                 </p>
                             </blockquote>

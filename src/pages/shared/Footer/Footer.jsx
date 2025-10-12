@@ -5,7 +5,7 @@ const Footer = () => {
         <div className=" md:mt-28">
             <footer className="flex justify-center px-4 text-gray-800 bg-white dark:text-white dark:bg-gray-900">
                 <div className="container px-6 py-6">
-                    <h1 className="text-lg font-bold text-center lg:text-2xl">
+                    <h1 className="text-lg md:font-bold text-center lg:text-2xl">
                         Join 31,000+ other and never miss <br /> out on new tips, tutorials, and more.
                     </h1>
 
@@ -37,25 +37,25 @@ const Footer = () => {
                             <div className="-mx-4">
                                 <a
                                     href="#"
-                                    className="px-4 text-sm text-gray-600 transition-colors duration-300 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 hover:underline"
+                                    className="px-4 text-sm text-gray-600 transition-colors duration-300 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 hover:"
                                 >
                                     About
                                 </a>
                                 <a
                                     href="#"
-                                    className="px-4 text-sm text-gray-600 transition-colors duration-300 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 hover:underline"
+                                    className="px-4 text-sm text-gray-600 transition-colors duration-300 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 hover:"
                                 >
                                     Blog
                                 </a>
                                 <a
                                     href="#"
-                                    className="px-4 text-sm text-gray-600 transition-colors duration-300 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 hover:underline"
+                                    className="px-4 text-sm text-gray-600 transition-colors duration-300 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 hover:"
                                 >
                                     News
                                 </a>
                                 <a
                                     href="#"
-                                    className="px-4 text-sm text-gray-600 transition-colors duration-300 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 hover:underline"
+                                    className="px-4 text-sm text-gray-600 transition-colors duration-300 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 hover:"
                                 >
                                     Contact
                                 </a>

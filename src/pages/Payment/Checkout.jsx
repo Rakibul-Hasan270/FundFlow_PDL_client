@@ -113,10 +113,10 @@ const Checkout = () => {
         setLoading(false);
     };
 
-    return (
-        <div>
+    return (    
+        <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
             <form
-                className="p-8 border w-1/2 mx-auto bg-white rounded-2xl shadow-lg"
+                className="w-full max-w-md p-6 sm:p-8 border bg-white rounded-2xl shadow-lg"
                 onSubmit={handleSubmit}
             >
                 <div className="border border-gray-300 rounded-lg p-3 bg-white">
@@ -139,15 +139,16 @@ const Checkout = () => {
                 </div>
 
                 <button
-                    className="btn btn-accent mt-5 btn-sm"
+                    className="btn btn-accent mt-5 w-full btn-sm"
                     type="submit"
                     disabled={!stripe || !clientSecret || amount < 0.5 || loading}
                 >
                     {loading ? <span>Processing...</span> : `Pay $${amount.toFixed(2)}`}
                 </button>
-                {error && <p className="text-red-500 mt-2">{error}</p>}
+                {error && <p className="text-red-500 mt-2 text-sm">{error}</p>}
             </form>
         </div>
+
     );
 };
 
