@@ -13,6 +13,7 @@ import ManageUser from "../../pages/Dashboard/ManageUser/ManageUser";
 import AddCampaigns from "../../pages/Dashboard/AddCampaigns/AddCampaigns";
 import EditCampaigns from "../../pages/Dashboard/EditCampaigns/EditCampaigns";
 import UpdateCampaigns from "../../pages/Dashboard/UpdateCampaigns/UpdateCampaigns";
+import AdminRoutes from "../AdminRoutes/AdminRoutes";
 
 const router = createBrowserRouter([
     {
@@ -58,19 +59,19 @@ const router = createBrowserRouter([
             // admin role path
             {
                 path: '/manage-user',
-                element: <ManageUser></ManageUser>
+                element: <AdminRoutes><ManageUser></ManageUser></AdminRoutes>
             },
             {
                 path: '/add-campaigns',
-                element: <AddCampaigns></AddCampaigns>
+                element: <AdminRoutes><AddCampaigns></AddCampaigns></AdminRoutes>
             },
             {
                 path: '/edit-campaigns',
-                element: <EditCampaigns></EditCampaigns>
+                element: <AdminRoutes><EditCampaigns></EditCampaigns></AdminRoutes>
             },
             {
                 path: '/update-campaigns/:id',
-                element: <UpdateCampaigns></UpdateCampaigns>,
+                element: <AdminRoutes><UpdateCampaigns></UpdateCampaigns></AdminRoutes>,
                 loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`)
             }
         ]

@@ -113,7 +113,7 @@ const Checkout = () => {
         setLoading(false);
     };
 
-    return (    
+    return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
             <form
                 className="w-full max-w-md p-6 sm:p-8 border bg-white rounded-2xl shadow-lg"
