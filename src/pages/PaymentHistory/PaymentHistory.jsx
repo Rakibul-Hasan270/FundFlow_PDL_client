@@ -8,7 +8,7 @@ import { TbCurrencyTaka } from "react-icons/tb";
 const PaymentHistory = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
-
+console.log(user?.role);
     const { data: paymentHistory = [], isLoading } = useQuery({
         queryKey: ['paymentHistory'],
         queryFn: async () => {

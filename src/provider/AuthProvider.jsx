@@ -4,7 +4,7 @@ import auth from "../firebase/firebase.config";
 import useAxiosPublic from "../hook/useAxiosPublic";
 
 export const AuthContext = createContext(null);
-
+    
 const AuthProvider = ({ children }) => {
     const [user, setuser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -32,6 +32,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             setuser(currentUser);
+            console.log(currentUser);
 
             if (currentUser) {
                 const userEmail = { email: currentUser?.email };
