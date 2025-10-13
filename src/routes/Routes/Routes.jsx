@@ -37,7 +37,7 @@ const router = createBrowserRouter([
             {
                 path: '/cart-detail/:id',
                 element: <PrivateRoutes><CartDetails></CartDetails></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`)
+                loader: ({ params }) => fetch(`https://fund-flow-pdl-server.vercel.app/campaigns/${params.id}`)
             },
             {
                 path: '/payment-history',
@@ -72,7 +72,7 @@ const router = createBrowserRouter([
             {
                 path: '/update-campaigns/:id',
                 element: <AdminRoutes><UpdateCampaigns></UpdateCampaigns></AdminRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`)
+                loader: ({ params }) => fetch(`https://fund-flow-pdl-server.vercel.app/campaigns/${params.id}`)
             }
         ]
     }
